@@ -1,0 +1,52 @@
+﻿@using Antlr.Runtime.Tree
+@model IEnumerable<MessManagementSystem.Models.Member>
+
+@{
+    ViewBag.Title = "Member's Information";
+}
+
+<h2>Member's Information</h2><hr/>
+
+<p>
+    @Html.ActionLink("Create New Member", "Create",null,new{@class="btn btn-success"})
+</p>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JoiningDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.JoiningDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactNo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MemberId },new{@class="btn btn-primary"}) |
+            @Html.ActionLink("Details", "Details", new { id = item.MemberId }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.MemberId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

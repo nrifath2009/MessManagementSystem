@@ -1,0 +1,89 @@
+﻿@using System.Web.UI.WebControls
+@model IEnumerable<MessManagementSystem.Models.Meal>
+
+@{
+    ViewBag.Title = "Meal Detail's";
+}
+
+<h2>Meal Detail's</h2><hr/>
+
+<p>
+    @Html.ActionLink("Create New", "Create",null,new{@class="btn btn-success"})
+</p>
+
+@using (Html.BeginForm())
+{
+     @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label>Member Name</label>
+        
+            <select name="memberId"class="form-control">
+                <option value=""></option>
+                @foreach (var member in ViewBag.Members)
+                {
+                    <option value="@member.MemberId">@member.Name</option>
+                }
+                    
+            </select>
+             
+     
+    </div>
+    <div class="form-group">
+        <input class="btn btn-success" type="submit" value="Show">
+    </div>
+}
+@if (ViewBag.MemberName != null)
+{
+    foreach (var member in ViewBag.MemberName)
+    {
+         <h3>@member</h3>  
+    }
+    
+}
+ 
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MealDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfMeal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MealDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoOfMeal)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MealId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MealId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MealId })
+        </td>
+    </tr>
+}
+    <tr>
+        
+        <td></td>
+        <th>Total Meal</th>
+        @if (ViewBag.TotalMeal != null)
+        {
+            <td> @ViewBag.TotalMeal</td>
+        }
+        
+       
+        <td></td>
+    </tr>
+
+</table>

@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Show Bill";
+}
+
+<h2>Member's Bill</h2><hr>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Member Name</th>
+        <th>Total Bazar</th>
+        <th>Total Meal</th>
+        <th>Bill</th>
+        <th>Status</th>
+    </tr>
+    @foreach (var member in ViewBag.MembersBill)
+    {
+        <tr>
+            <td>@member.MemberName</td>
+            <td>@member.TotalBazar</td>
+            <td>@member.TotalMeal</td>
+            <td>@member.Bill</td>
+            <td>@member.Status</td>
+        </tr>
+    }
+    
+    
+
+</table>
+

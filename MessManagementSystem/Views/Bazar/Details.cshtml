@@ -1,0 +1,42 @@
+﻿@model MessManagementSystem.Models.Bazar
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Bazar</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Member.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BazarDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BazarDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BazarAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BazarAmount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BazarId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

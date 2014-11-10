@@ -1,0 +1,57 @@
+﻿@model MessManagementSystem.Models.Bazar
+
+@{
+    ViewBag.Title = "Add New Bazaar";
+}
+
+<h2>Add New Bazaar</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Bazar</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BazarDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BazarDate)
+                @Html.ValidationMessageFor(model => model.BazarDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MemberId, "MemberId", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MemberId", String.Empty)
+                @Html.ValidationMessageFor(model => model.MemberId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BazarAmount, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BazarAmount)
+                @Html.ValidationMessageFor(model => model.BazarAmount)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index",null,new{@class="btn btn-primary"})
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

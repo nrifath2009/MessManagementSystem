@@ -1,0 +1,48 @@
+﻿@model MessManagementSystem.Models.Bazar
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Bazar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Member.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BazarDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BazarDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BazarAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BazarAmount)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
